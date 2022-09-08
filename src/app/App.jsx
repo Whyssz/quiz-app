@@ -1,7 +1,7 @@
-
+import Spinner from '../components/UI/spinner/Spinner';
 
 const App = () => {
-  return <div>hello</div>;
+  return <Spinner />;
 };
 
 export default App;
