@@ -1,0 +1,7 @@
+.btn {
+  @apply font-medium text-lg px-16 py-2 cursor-pointer rounded transition-all text-blue-600 border-blue-500 bg-transparent;
+  border-width: 1px;
+  &:hover {
+    @apply text-white border-blue-500 bg-blue-500;
+  }
+}
