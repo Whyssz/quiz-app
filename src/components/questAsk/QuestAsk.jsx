@@ -4,7 +4,7 @@ import styles from './questAsk.module.scss';
 export const QuestAsk = ({ title = 'Smth title =)' }) => {
   return (
     <ul className="flex flex-col">
-      <li className="font-bold text-2xl text-center my-3 px-1">{title}</li>
+      <li className="font-bold text-xl text-center my-3 px-1">{title}</li>
       <li className={styles.quest}>
         <button>1</button>
       </li>

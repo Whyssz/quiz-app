@@ -1,4 +1,5 @@
 import styles from './progressBar.module.scss';
+import './progressBar.module.scss';
 
 export const ProgressBar = () => {
   return (
@@ -8,8 +9,7 @@ export const ProgressBar = () => {
       <li active className={styles.number}>
         3
       </li>
-      <li className={styles.number}>7</li>
-      <li className={styles.number}>7</li>
+      <li className={`${styles.number} active`}>7</li>
       <li className={styles.number}>7</li>
       <li className={styles.number}>7</li>
       <li className={styles.number}>8</li>

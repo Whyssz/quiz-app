@@ -7,6 +7,8 @@ body {
   font-family: 'Ubuntu', sans-serif;
   height: 100vh;
   background: linear-gradient(122.76deg, #3550dc -35.72%, #27e9f7 172.73%);
+  @apply pb-10;
+  overflow: hidden;
 }
 
 * {
@@ -33,6 +35,46 @@ body {
     border-color: #00000024;
   }
 }
-.active-navigate {
-  background-color: black;
+
+/* .render-enter {
+  opacity: 0;
+  transform: translateY(200px);
+}
+
+.render-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 600ms ease;
+}
+
+.render-exit {
+  opacity: 1;
+  transition: all 600ms ease;
+}
+
+.render-exit-active {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 600ms ease;
+} */
+
+.render-enter {
+  opacity: 0;
+  transform: scale(0.9);
+  transform: translateY(190px);
+}
+.render-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 400ms, transform 400ms;
+}
+.render-exit {
+  opacity: 1;
+}
+.render-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transform: translateY(190px);
+
+  transition: opacity 400ms, transform 400ms;
 }
