@@ -1,16 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { DataProvider } from './context';
+import { App } from './components/app/App';
 
-import App from './components/app/App';
-
-import './styles/styles.scss';
+import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <DataProvider>
-      <App />
-    </DataProvider>
+    <App />
   </React.StrictMode>
 );

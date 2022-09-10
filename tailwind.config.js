@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       transitionTimingFunction: {
-        DEFAULT: 'ease-in',
+        DEFAULT: 'ease-in-out',
       },
       transitionDuration: {
         DEFAULT: '400ms',

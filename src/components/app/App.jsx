@@ -1,31 +1,22 @@
-import { useEffect } from 'react';
-import { useHttp } from '../../hooks/useHttp';
-import AppRouter from '../AppRouter/AppRouter';
-import ErrorMessage from '../errorMessage/ErrorMessage';
+import '../../styles/styles.scss';
 import { Header } from '../header/Header';
-import { MainConteiner } from '../mainConteiner/MainConteiner';
-import { ProgressBar } from '../progressBar/ProgressBar';
-import TempleQuest from '../templeQuest/TempleQuest';
+import { QuestContainer } from '../questContainer/QuestContainer';
 
-import Spinner from '../UI/spinner/Spinner';
-
-const App = () => {
-  // const { request, process, setProcess } = useHttp();
-
-  // useEffect(() => {
-  //   request('http://localhost:3001/questions').then((data) =>
-  //     console.log(data)
+export const App = () => {
+  // const onFetch = async () => {
+  //   const res = await fetch(
+  //     'https://quizapi.io/api/v1/questions?apiKey=fL6AYo5FW5uUcql80I9HXMcPlo2WhM2w10a0vabf&category=devops&difficulty=Easy&limit=10'
   //   );
-  // }, []);
+  //   const data = await res.json();
+  //   console.log(data);
+  // };
 
   return (
-    <>
-      <Header />
-      <AppRouter />
-      {/* <Spinner /> */}
-      {/* <ErrorMessage /> */}
-    </>
+    <div className="container_wrapp">
+      <div className="container">
+        <Header title="Question" timer="30:00" />
+        <QuestContainer />
+      </div>
+    </div>
   );
 };
-
-export default App;

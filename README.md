@@ -4,4 +4,4 @@ App - []
   Ask-templete - []
   File-base - []
 
-npm i sass tailwindcss postcss autoprefixer react-hook-form react-router-dom 
+yarn add sass tailwindcss postcss autoprefixer react-hook-form react-router-dom 

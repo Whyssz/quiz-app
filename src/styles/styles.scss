@@ -4,14 +4,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
 
 body {
-  background: linear-gradient(122.76deg, #3550dc -35.72%, #27e9f7 172.73%);
   font-family: 'Ubuntu', sans-serif;
+  height: 100vh;
+  background: linear-gradient(122.76deg, #3550dc -35.72%, #27e9f7 172.73%);
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+.container_wrapp {
+  @apply max-w-[1200px] w-full mx-auto;
+}
+
+.container {
+  @apply w-full text-center mx-auto;
 }
 
 :disabled {
@@ -23,4 +32,7 @@ body {
     color: #0000008c;
     border-color: #00000024;
   }
+}
+.active-navigate {
+  background-color: black;
 }

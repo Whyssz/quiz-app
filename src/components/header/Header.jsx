@@ -1,11 +1,10 @@
 import styles from './Header.module.scss';
 
-export function Header() {
+export const Header = ({ title, timer = '00:00' }) => {
   return (
-    <div>
-      <h2 className="text-white mt-10 mb-6 text-center text-3xl font-bold">
-        Quiz App
-      </h2>
+    <div className="flex justify-between items-center px-6 pt-10 pb-[25px]">
+      <h1 className="text-2xl text-white">{title}</h1>
+      <div className={styles.timer}>{timer}</div>
     </div>
   );
-}
+};
