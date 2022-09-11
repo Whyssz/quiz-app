@@ -8,7 +8,6 @@ body {
   height: 100vh;
   background: linear-gradient(122.76deg, #3550dc -35.72%, #27e9f7 172.73%);
   @apply pb-10;
-  overflow: hidden;
 }
 
 * {
@@ -36,27 +35,12 @@ body {
   }
 }
 
-/* .render-enter {
-  opacity: 0;
-  transform: translateY(200px);
+.passed {
+  @apply bg-sky-400 after:bg-sky-400 text-white #{!important};
 }
-
-.render-enter-active {
-  opacity: 1;
-  transform: translateY(0);
-  transition: all 600ms ease;
+.active {
+  @apply bg-blue-500 text-white after:bg-blue-500 #{!important};
 }
-
-.render-exit {
-  opacity: 1;
-  transition: all 600ms ease;
-}
-
-.render-exit-active {
-  opacity: 0;
-  transform: translateY(100px);
-  transition: all 600ms ease;
-} */
 
 .render-enter {
   opacity: 0;

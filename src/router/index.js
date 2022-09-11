@@ -1,13 +1,13 @@
-import { QuestDEV } from '../components/pages/QuestDEV';
-import { QuestHTML } from '../components/pages/QuestHTML';
-import { QuestJS } from '../components/pages/QuestJS';
-import { StartPage } from '../components/pages/StartPage';
-import { Error } from '../components/pages/Error';
+import { QuestDEV } from '../pages/QuestDEV';
+import { QuestHTML } from '../pages/QuestHTML';
+import { QuestJS } from '../pages/QuestJS';
+import { StartPage } from '../pages/StartPage';
+import { Error } from '../pages/Error';
 
 export const routers = [
   { path: '/', element: <StartPage /> },
   { path: '/js', element: <QuestJS /> },
-  { path: '/dev-ops', element: <QuestDEV /> },
+  { path: '/devops', element: <QuestDEV /> },
   { path: '/html', element: <QuestHTML /> },
   { path: '*', element: <Error /> },
 ];

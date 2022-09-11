@@ -6,7 +6,7 @@
   &:focus-within,
   &:hover,
   &:active {
-    @apply bg-blue-500 text-white after:bg-blue-500;
+    @apply bg-sky-400 after:bg-sky-400 text-white;
   }
 }
 .bigNum {
@@ -17,6 +17,6 @@
   &:focus-within,
   &:hover,
   &:active {
-    @apply bg-blue-500 text-white after:bg-blue-500;
+    @apply bg-sky-400 text-white after:bg-sky-400;
   }
 }

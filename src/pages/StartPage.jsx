@@ -1,10 +1,11 @@
-import { QuestContainer } from '../questContainer/QuestContainer';
-import js from '../../assets/img/js1.jpg';
-import devops from '../../assets/img/devops.jpg';
-import html from '../../assets/img/html.jpg';
+import { QuestContainer } from '../components/questContainer/QuestContainer';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
+
+import js from '../assets/img/js1.jpg';
+import devops from '../assets/img/devops.jpg';
+import html from '../assets/img/html.jpg';
 
 export const StartPage = () => {
   const [start, setStart] = useState(false);

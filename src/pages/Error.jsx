@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import err from '../../assets/img/error.gif';
+import err from '../assets/img/error.gif';
 
 export const Error = () => {
   document.body.style.overflow = 'hidden';
