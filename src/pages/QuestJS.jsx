@@ -26,7 +26,7 @@ export const QuestJS = () => {
     getJSQuestions(limit).then((data) => {
       setValues(data);
       setProcess('confirmed');
-      // test({ test2: 'dima' });
+      console.log(data);
     });
   };
   const test = (value) => {
@@ -36,12 +36,7 @@ export const QuestJS = () => {
   useEffect(() => {
     console.log(status);
   }, [status]);
-  // const test = (data) => {
-  //   const newData = (data[currAsk].test = true);
-  //   // console.log(newData);
-  //   setValues(newData);
-  // };
-  // console.log(data);
+
 
   return (
     <>
@@ -53,7 +48,7 @@ export const QuestJS = () => {
           {currAsk === 10 ? (
             <MyButton>End</MyButton>
           ) : (
-            <MyButton onClick={() => test(currAsk + 1)}>Next</MyButton>
+            <MyButton onClick={() => test(false)}>Next</MyButton>
           )}
         </div>
       </QuestContainer>

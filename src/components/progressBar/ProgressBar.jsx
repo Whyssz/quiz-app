@@ -38,5 +38,4 @@ export const ProgressBar = ({ current, count }) => {
   const render = list(count);
 
   return <div>{render}</div>;
-
 };
