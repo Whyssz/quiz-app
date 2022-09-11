@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import err from '../assets/img/error.gif';
+import { ErrorMessage } from '../components/errorMessage/ErrorMessage';
 
 export const Error = () => {
   document.body.style.overflow = 'hidden';
@@ -8,9 +8,9 @@ export const Error = () => {
       <h1 className="font-bold text-2xl text-black my-4">
         Ups... Error... Please, check your URL links.
       </h1>
-      <img className="mx-auto" src={err} alt="error" />
+      <ErrorMessage />
       <Link className="text-xl font-medium text-blue-500 cursor-pointer" to="/">
-        Go to start
+        Go home
       </Link>
     </div>
   );

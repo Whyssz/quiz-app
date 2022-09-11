@@ -20,7 +20,7 @@ export const useQuestServices = () => {
     return {
       question: question.question,
       answers: question.answers,
-      currect: question.correct_answeres,
+      correct: question.correct_answers,
     };
   };
 

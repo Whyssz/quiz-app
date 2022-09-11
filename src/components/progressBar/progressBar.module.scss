@@ -4,8 +4,7 @@
     @apply absolute w-[60px] bottom-[-20px] left-[-20%] bg-slate-100 h-[2px] transition-all;
   }
   &:focus-within,
-  &:hover,
-  &:active {
+  &:hover {
     @apply bg-sky-400 after:bg-sky-400 text-white;
   }
 }
@@ -15,8 +14,7 @@
     @apply absolute w-[60px] bottom-[-20px] left-[-20%] bg-slate-100 h-[2px] transition-all;
   }
   &:focus-within,
-  &:hover,
-  &:active {
+  &:hover {
     @apply bg-sky-400 text-white after:bg-sky-400;
   }
 }
