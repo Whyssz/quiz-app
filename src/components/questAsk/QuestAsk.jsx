@@ -1,80 +1,83 @@
 import { useEffect } from 'react';
+import { useState } from 'react';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useData } from '../../hooks/useData';
-import { useQuestServices } from '../../services/QuestServices';
-import Spinner from '../UI/spinner/Spinner';
+import { MyButton } from '../UI/button/MyButton';
+
 import styles from './questAsk.module.scss';
+import '../../styles/styles.scss';
 
-export const QuestAsk = () => {
-  const { data, setValues } = useData();
-  // const {process}
-  const { process, setProcess, clearError, getJSQuestions } =
-    useQuestServices();
+export const QuestAsk = ({ current, onNext, data }) => {
+  const { setStep } = useData();
+  const [trigger, setTrigger] = useState(true);
 
-  const onLi = (value) => console.log(value);
+  useEffect(() => {
+    setTrigger(true);
+  }, [current]);
 
-  const renderList = (data) => {
-    return <div>{data[1].question}</div>;
-    // const { question, answers, correct } = data;
-    // const res = Object.values(correct);
-
-    // const ansList = Object.values(answers);
-
-    // const list = ansList.map((item, i) => (
-    //   <li key={item} onClick={() => onLi(res[i])} className="test">
-    //     {item}
-    //   </li>
-    // ));
-
-    // return (
-    //   <ul flex flex-col>
-    //     <li className="font-bold text-xl text-center my-3 px-1">{question}</li>
-    //     {ansList.map()}
-    //   </ul>
-    // );
+  const onChoise = (value, correct, el) => {
+    // I considered useRef, but it would not work correctly here
+    setStep(value);
+    setTrigger(!trigger);
+    btnInteraction(el, correct);
   };
 
-  const result = renderList(data);
+  const btnInteraction = (item, correct) => {
+    const [...btns] = document.querySelectorAll('.question');
+
+    btns.forEach((btn, i) => {
+      if (btn === item.target) btn.classList.add('selected');
+      btn.disabled = true;
+      i === correct ? btn.classList.add('true') : btn.classList.add('false');
+    });
+  };
+
+  const renderList = (data) => {
+    const { answers, correct } = data;
+    const res = Object.values(correct);
+    const resCorr = res.indexOf('true');
+    const ansList = Object.values(answers).filter((item) => item !== null);
+
+    const list = ansList.map((item, index) => {
+      return (
+        <CSSTransition key={item} timeout={300} classNames="ask">
+          <button
+            tabIndex={0}
+            onClick={(el) => onChoise(res[index], resCorr, el)}
+            className={`${styles.quest} question`}
+          >
+            {item}
+          </button>
+        </CSSTransition>
+      );
+    });
+
+    return (
+      <ul className="flex flex-col">
+        <TransitionGroup component={null}>{list}</TransitionGroup>
+        <CSSTransition timeout={300} classNames="ask">
+          <div className="mt-10">
+            {current === 9 ? (
+              <MyButton disabled={trigger}>End</MyButton>
+            ) : (
+              <MyButton disabled={trigger} onClick={() => onNext()}>
+                Next
+              </MyButton>
+            )}
+          </div>
+        </CSSTransition>
+      </ul>
+    );
+  };
+
+  const result = renderList(data[current]);
 
   return (
-    <ul className="flex flex-col">
-      <li className="font-bold text-xl text-center my-3 px-1">question</li>
+    <>
+      <h2 className="font-bold text-xl text-center my-3 px-1">
+        {data[current].question}
+      </h2>
       {result}
-      {/* <li className={styles.quest}>
-        <button>1</button>
-      </li>
-
-      <li active className={styles.quest}>
-        <button>
-          fasdi jfgiodsjaio fidsjaiofj iojdfgsifdgiojdfiogiojfsdio jgoidd
-          iogjfdiosj giodfosgj hoidf jgioj fsdioj gofdsouig odfiugh oifj
-          giougdfiogij fdiogjoidf jgoidfg joifdsjg oijdfoisjgiofd
-          jsgjfdiojgiojfdoisgjiosdfjgiofds io
-        </button>
-      </li>
-      <li active className={styles.quest}>
-        <button>
-          fasdi jfgiodsjaio fidsjaiofj iojdfgsifdgiojdfiogiojfsdio jgoidd
-          iogjfdiosj giodfosgj hoidf jgioj fsdioj gofdsouig odfiugh oifj
-          giougdfiogij fdiogjoidf jgoidfg joifdsjg oijdfoisjgiofd
-          jsgjfdiojgiojfdoisgjiosdfjgiofds io
-        </button>
-      </li>
-      <li active className={styles.quest}>
-        <button>
-          fasdi jfgiodsjaio fidsjaiofj iojdfgsifdgiojdfiogiojfsdio jgoidd
-          iogjfdiosj giodfosgj hoidf jgioj fsdioj gofdsouig odfiugh oifj
-          giougdfiogij fdiogjoidf jgoidfg joifdsjg oijdfoisjgiofd
-          jsgjfdiojgiojfdoisgjiosdfjgiofds io
-        </button>
-      </li>
-      <li active className={styles.quest}>
-        <button>
-          fasdi jfgiodsjaio fidsjaiofj iojdfgsifdgiojdfiogiojfsdio jgoidd
-          iogjfdiosj giodfosgj hoidf jgioj fsdioj gofdsouig odfiugh oifj
-          giougdfiogij fdiogjoidf jgoidfg joifdsjg oijdfoisjgiofd
-          jsgjfdiojgiojfdoisgjiosdfjgiofds io
-        </button>
-      </li> */}
-    </ul>
+    </>
   );
 };

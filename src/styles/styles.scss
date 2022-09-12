@@ -24,7 +24,7 @@ body {
   @apply w-full text-center mx-auto;
 }
 
-:disabled {
+.btn:disabled {
   background-color: #00000024;
   color: #0000008c;
   border-color: #00000024;
@@ -39,7 +39,7 @@ body {
   @apply bg-sky-400 after:bg-sky-400 text-white #{!important};
 }
 .active {
-  @apply bg-blue-500 text-white after:bg-blue-500 #{!important};
+  @apply bg-blue-500 text-white after:bg-blue-800 #{!important};
 }
 
 .render-enter {
@@ -61,4 +61,39 @@ body {
   transform: translateY(190px);
 
   transition: opacity 400ms, transform 400ms;
+}
+
+.true {
+  @apply bg-green-600 text-white;
+}
+.false {
+  @apply bg-red-600 text-white;
+}
+.selected {
+  @apply border-blue-700 border-4 hover:border-blue-700;
+}
+
+.ask-enter {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+.ask-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.ask-exit {
+  visibility: hidden;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.ask-exit-active {
+  visibility: hidden;
+  position: absolute;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
 }
