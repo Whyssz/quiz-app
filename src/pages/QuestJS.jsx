@@ -1,30 +1,29 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { Header } from '../components/header/Header';
-import { ProgressBar } from '../components/progressBar/ProgressBar';
-import { QuestAsk } from '../components/questAsk/QuestAsk';
-import { QuestContainer } from '../components/questContainer/QuestContainer';
+import { useState, useEffect } from 'react';
 import { useQuestServices } from '../services/QuestServices';
 import { useData } from '../hooks/useData';
+
+import { Header } from '../components/header/Header';
+import { ProgressBar } from '../components/progressBar/ProgressBar';
+import { QuestContainer } from '../components/questContainer/QuestContainer';
+import { QuestAsk } from '../components/questAsk/QuestAsk';
 import Spinner from '../components/UI/spinner/Spinner';
 
 export const QuestJS = () => {
-  const { data, setValues, status, setStep } = useData([]);
+  const { setValues } = useData([]);
   const [currData, setCurrData] = useState([]);
 
-  const [limit, setLimit] = useState(10);
   const [currAsk, setCurrAsk] = useState(0);
   const { process, setProcess, getJSQuestions } = useQuestServices();
 
+  const timer = {
+    minutes: 10,
+  };
+
   useEffect(() => {
-    onRequest(limit);
+    onRequest(10);
   }, []);
 
   const onRequest = (limit) => {
-    // getJSQuestions(limit).then((data) => {
-    //   setValues(data);
-    //   setProcess('confirmed');
-    // });
     getJSQuestions(limit)
       .then(setData)
       .then(() => setProcess('confirmed'));
@@ -41,7 +40,7 @@ export const QuestJS = () => {
 
   return (
     <>
-      <Header title="Question" timer="30:00" />
+      <Header title="Question" timer={timer} />
       <QuestContainer>
         <ProgressBar current={currAsk + 1} count={10} />
         {process !== 'confirmed' ? (

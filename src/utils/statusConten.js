@@ -1,5 +1,5 @@
 import { ErrorMessage } from '../components/errorMessage/ErrorMessage';
-import { Spinner } from '../components/UI/spinner/Spinner';
+import Spinner from '../components/UI/spinner/Spinner';
 
 export const setContent = (process, Component, data) => {
   switch (process) {

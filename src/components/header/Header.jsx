@@ -1,8 +1,8 @@
-import styles from './Header.module.scss';
 import arrow from '../../assets/img/43.svg';
 import { Link } from 'react-router-dom';
+import { Timer } from '../timer/Timer';
 
-export const Header = ({ title, timer = '00:00' }) => {
+export const Header = ({ title, timer }) => {
   return (
     <div className="flex justify-between items-center px-6 pt-10 pb-[25px]">
       <Link
@@ -17,7 +17,7 @@ export const Header = ({ title, timer = '00:00' }) => {
         />
         {title}
       </Link>
-      <div className={styles.timer}>{timer}</div>
+      <Timer timer={timer} />
     </div>
   );
 };

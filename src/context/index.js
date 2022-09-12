@@ -4,7 +4,7 @@ export const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
   const [data, setData] = useState([]);
-  const [status, setStatus] = useState([]);
+  const [status, setStatus] = useState([false, true, false]);
 
   const setStep = (value) => {
     setStatus((prevStatus) => [...prevStatus, value]);

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ErrorMessage } from '../components/errorMessage/ErrorMessage';
 
-export const Error = () => {
+export const ErrorPage = () => {
   document.body.style.overflow = 'hidden';
   return (
     <div className="bg-white p-5 mt-20 rounded-xl mx-auto max-w-2xl">
