@@ -1,19 +1,26 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useData } from '../../hooks/useData';
+import { useQuestServices } from '../../services/QuestServices';
 import styles from './timer.module.scss';
 
 export const Timer = ({ timer }) => {
   const [time, setTime] = useState(timer.minutes * 60);
   const endTimer = useNavigate();
 
+  const { data } = useData();
+
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTime((time) => (time >= 1 ? time - 1 : 0));
-    }, 1000);
-    if (time === 0) endTimer('/result');
-    return () => clearInterval(interval);
-  }, [time]);
+    if (data.length !== 0) {
+      const interval = setInterval(() => {
+        setTime((time) => (time >= 1 ? time - 1 : 0));
+      }, 1000);
+
+      if (time === 0) endTimer('/result');
+      return () => clearInterval(interval);
+    }
+  }, [time, data]);
 
   const minutes = addZero(Math.floor(time / 60));
   const seconds = addZero(time - minutes * 60);
