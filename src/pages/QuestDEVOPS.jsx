@@ -8,12 +8,12 @@ import { QuestContainer } from '../components/questContainer/QuestContainer';
 import { QuestAsk } from '../components/questAsk/QuestAsk';
 import Spinner from '../components/UI/spinner/Spinner';
 
-export const QuestHTML = () => {
+export const QuestDEVOPS = () => {
   const [currData, setCurrData] = useState([]);
   const [currAsk, setCurrAsk] = useState(0);
 
   const { setValues } = useData([]);
-  const { process, setProcess, getHTMLQuestions } = useQuestServices();
+  const { process, setProcess, getDEVOPSQuestions } = useQuestServices();
 
   const timer = {
     minutes: 10,
@@ -24,7 +24,7 @@ export const QuestHTML = () => {
   }, []);
 
   const onRequest = (limit) => {
-    getHTMLQuestions(limit)
+    getDEVOPSQuestions(limit)
       .then(setData)
       .then(() => setProcess('confirmed'));
   };

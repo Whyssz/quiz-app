@@ -2,6 +2,7 @@ import { QuestContainer } from '../components/questContainer/QuestContainer';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import { useData } from '../hooks/useData';
 
 import js from '../assets/img/js1.jpg';
 import devops from '../assets/img/devops.jpg';
@@ -11,8 +12,11 @@ export const StartPage = () => {
   const [start, setStart] = useState(false);
   const navigate = useNavigate();
 
+  const { clearData } = useData();
+
   useEffect(() => {
     setStart(true);
+    clearData();
   }, []);
 
   return (
@@ -62,7 +66,7 @@ export const StartPage = () => {
             <li
               className="relative h-full w-w-full cursor-pointer  transition-all hover:brightness-[170%]"
               onClick={() => {
-                navigate('/dev-ops');
+                navigate('/devops');
               }}
             >
               <h3 className="absolute font-bold text-white text-5xl top-[100px] left-[50%] translate-x-[-50%] z-[3]">

@@ -9,10 +9,10 @@ import { QuestAsk } from '../components/questAsk/QuestAsk';
 import Spinner from '../components/UI/spinner/Spinner';
 
 export const QuestJS = () => {
-  const { setValues } = useData([]);
   const [currData, setCurrData] = useState([]);
-
   const [currAsk, setCurrAsk] = useState(0);
+
+  const { setValues } = useData([]);
   const { process, setProcess, getJSQuestions } = useQuestServices();
 
   const timer = {

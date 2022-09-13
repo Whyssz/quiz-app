@@ -5,9 +5,10 @@
 
 body {
   font-family: 'Ubuntu', sans-serif;
+  overflow-x: hidden;
   height: 100vh;
   background: linear-gradient(122.76deg, #3550dc -35.72%, #27e9f7 172.73%);
-  @apply pb-10;
+  @apply pb-10 ;
 }
 
 * {

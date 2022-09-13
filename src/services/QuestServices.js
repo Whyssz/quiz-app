@@ -16,6 +16,20 @@ export const useQuestServices = () => {
     return res.map(_transformQuestion);
   };
 
+  const getHTMLQuestions = async (limit = _baseLimit) => {
+    const res = await request(
+      `${_apiUrl}?${_apiKey}&category=code&difficulty=Easy&limit=${limit}&tags=HTML`
+    );
+    return res.map(_transformQuestion);
+  };
+
+  const getDEVOPSQuestions = async (limit = _baseLimit) => {
+    const res = await request(
+      `${_apiUrl}?${_apiKey}&category=devops&difficulty=Easy&limit=${limit}`
+    );
+    return res.map(_transformQuestion);
+  };
+
   const _transformQuestion = (question) => {
     return {
       question: question.question,
@@ -24,8 +38,14 @@ export const useQuestServices = () => {
     };
   };
 
-  return { process, setProcess, clearError, getJSQuestions };
-  //js {https://quizapi.io/api/v1/questions?apiKey=YOUR_API_KEY&category=code&difficulty=Easy&limit=10&tags=JavaScript}
+  return {
+    process,
+    setProcess,
+    clearError,
+    getJSQuestions,
+    getHTMLQuestions,
+    getDEVOPSQuestions,
+  };
   //html {https://quizapi.io/api/v1/questions?apiKey=fL6AYo5FW5uUcql80I9HXMcPlo2WhM2w10a0vabf&category=code&difficulty=Easy&limit=10&tags=HTML}
   //devops {https://quizapi.io/api/v1/questions?apiKey=YOUR_API_KEY&category=devops&difficulty=Easy&limit=10}
 };
