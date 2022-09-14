@@ -5,12 +5,10 @@ import '../../styles/styles.scss';
 
 export const App = () => {
   return (
-    <div className="container_wrapp">
-      <div className="container">
-        <Router>
-          <AppRouter />
-        </Router>
-      </div>
+    <div className="container">
+      <Router>
+        <AppRouter />
+      </Router>
     </div>
   );
 };

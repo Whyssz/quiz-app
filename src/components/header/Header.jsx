@@ -4,7 +4,7 @@ import { Timer } from '../timer/Timer';
 
 export const Header = ({ title, timer }) => {
   return (
-    <div className="flex justify-between items-center px-6 pt-10 pb-[25px]">
+    <div className=" flex p-5 justify-between items-center tablet:px-6 tablet:pt-10 tablet:pb-[25px]">
       <Link
         className="text-3xl text-white before:absolute pl-10 cursor-pointer relative"
         to="/"

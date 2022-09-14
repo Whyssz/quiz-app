@@ -16,7 +16,6 @@ export const QuestAsk = ({ current, onNext, data }) => {
   }, [current]);
 
   const onChoise = (value, correct, el) => {
-    // I considered useRef, but it would not work correctly here
     setStep(value);
     setTrigger(!trigger);
     btnInteraction(el, correct);
@@ -78,7 +77,7 @@ export const QuestAsk = ({ current, onNext, data }) => {
 
   return (
     <>
-      <h2 className="font-bold text-xl text-center my-3 px-1">
+      <h2 className="my-5 font-bold text-lg tablet:text-xl text-center tablet:my-3 px-1">
         {data[current].question}
       </h2>
       {result}

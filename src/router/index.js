@@ -1,6 +1,6 @@
 import { QuestHTML } from '../pages/QuestHTML';
 import { QuestJS } from '../pages/QuestJS';
-import { StartPage } from '../pages/StartPage';
+import { StartPage } from '../pages/startPage/StartPage';
 import { ErrorPage } from '../pages/ErrorPage';
 import { ResultPage } from '../pages/ResultPage';
 import { QuestDEVOPS } from '../pages/QuestDEVOPS';

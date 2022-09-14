@@ -19,6 +19,12 @@ export const ResultPage = () => {
   }, []);
 
   const renderResult = (data, status) => {
+    if (status.length < 10) {
+      while (status.length !== 10) {
+        status.push(false);
+      }
+    }
+
     status.forEach((value, i) => {
       if (value === 'true') {
         setAnswers((answ) => answ + 1);
@@ -37,7 +43,7 @@ export const ResultPage = () => {
 
   const wrongsList = wrongs.map((item) => (
     <li
-      className="cursor-default w-full my-2 py-2 px-5 font-medium border-salty-100 rounded-2xl text-xl border-[1px]"
+      className="cursor-default w-full my-2 py-2 px-5 font-medium border-salty-100 rounded-2xl text-lg tablet:text-xl border-[1px]"
       key={item}
     >
       {item}
@@ -48,7 +54,7 @@ export const ResultPage = () => {
     <CSSTransition in={!load} timeout={500} classNames="render">
       <div className="result-box">
         {data.length <= 0 ? (
-          <h2 className="pt-20 font-bold text-3xl text-white">
+          <h2 className="pt-20 font-bold text-3xl text-black">
             It's too early for that =)
             <Link
               className="block mt-5 font-medium text-blue-700 cursor-pointer"
@@ -58,25 +64,31 @@ export const ResultPage = () => {
             </Link>
           </h2>
         ) : wrongs.length === 0 ? (
-          <div className="pt-10">
-            <QuestContainer>
-              <h1 className="mt-5 font-bold text-transparent text-6xl bg-clip-text bg-gradient-to-r from-[#3550dc] to-[#27e9f7] cursor-pointer animate-bounce">
+          <div className="tablet:pt-10">
+            <div
+              className="py-3 tablet:py-10 px-4
+       mx-auto relative bg-white tablet:px-[25px] tablet:pt-10 tablet:pb-10 tablet:rounded-3xl min-h-[88.5vh] tablet:min-h-[500px]"
+            >
+              <h2 className="mt-5 font-bold text-transparent text-6xl bg-clip-text bg-gradient-to-r from-[#3550dc] to-[#27e9f7] cursor-pointer animate-bounce">
                 <Link to="/">Result</Link>
-              </h1>
+              </h2>
               <h3 className="my-5 font-medium text-3xl bg-clip-text bg-gradient-to-r from-[#3550dc] to-[#27e9f7]">
                 <span className="text-green-500">{answers}</span> / 10
               </h3>
               <h2 className="pt-10 font-bold text-3xl text-green-500">
                 Good job, you did it without mistakes!
               </h2>
-            </QuestContainer>
+            </div>
           </div>
         ) : (
-          <div className="pt-10">
-            <QuestContainer>
-              <h1 className="mt-5 font-bold text-transparent text-6xl bg-clip-text bg-gradient-to-r from-[#3550dc] to-[#27e9f7] cursor-pointer animate-bounce">
+          <div className="tablet:pt-10">
+            <div
+              className="py-3 tablet:py-10 px-4
+       mx-auto relative bg-white tablet:px-[25px] tablet:pt-10 tablet:pb-10 tablet:rounded-3xl min-h-[88.5vh] tablet:min-h-[500px]"
+            >
+              <h2 className="mt-5 font-bold text-transparent text-6xl bg-clip-text bg-gradient-to-r from-[#3550dc] to-[#27e9f7] cursor-pointer animate-bounce">
                 <Link to="/">Result</Link>
-              </h1>
+              </h2>
               <h3 className="my-5 font-medium text-3xl bg-clip-text bg-gradient-to-r from-[#3550dc] to-[#27e9f7]">
                 <span className="text-green-500">{answers}</span> / 10
               </h3>
@@ -86,7 +98,7 @@ export const ResultPage = () => {
               <ul className=" py-3 px-5 flex flex-wrap justify-center items-center">
                 {wrongsList}
               </ul>
-            </QuestContainer>
+            </div>
           </div>
         )}
       </div>

@@ -40,14 +40,16 @@ export const QuestHTML = () => {
 
   return (
     <>
-      <Header title="Question" timer={timer} />
+      <Header title="Start" timer={timer} />
       <QuestContainer>
-        <ProgressBar current={currAsk + 1} count={10} />
-        {process !== 'confirmed' ? (
-          <Spinner />
-        ) : (
-          <QuestAsk onNext={onNext} current={currAsk} data={currData} />
-        )}
+        <div className="tablet:px-10">
+          <ProgressBar current={currAsk + 1} count={10} />
+          {process !== 'confirmed' ? (
+            <Spinner />
+          ) : (
+            <QuestAsk onNext={onNext} current={currAsk} data={currData} />
+          )}
+        </div>
       </QuestContainer>
     </>
   );

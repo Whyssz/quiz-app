@@ -5,20 +5,14 @@
 
 body {
   font-family: 'Ubuntu', sans-serif;
-  overflow-x: hidden;
-  height: 100vh;
   background: linear-gradient(122.76deg, #3550dc -35.72%, #27e9f7 172.73%);
-  @apply pb-10 ;
+  @apply desktop:pb-10 w-full overflow-x-hidden desktop:h-[100vh] m-0 pb-0;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-.container_wrapp {
-  @apply max-w-[1200px] w-full mx-auto;
 }
 
 .container {

@@ -1,12 +1,12 @@
 .number {
   @apply bg-gray-100 py-[7px] px-4 mx-[7px] rounded-full h-[40px] cursor-default font-bold transition-all relative after:visible;
   &:after {
-    @apply absolute w-[60px] bottom-[-20px] left-[-20%] bg-slate-100 h-[2px] transition-all;
+    @apply absolute w-[53px] tablet:w-[60px] bottom-[-20px] left-[-20%] bg-slate-100 h-[2px] transition-all;
   }
 }
 .bigNum {
   @apply bg-gray-100 h-[40px] py-[7px] px-3 mx-[6px] rounded-full relative cursor-default font-bold transition-all after:visible;
   &:after {
-    @apply absolute w-[60px] bottom-[-20px] left-[-20%] bg-slate-100 h-[2px] transition-all;
+    @apply absolute w-[53px] tablet:w-[60px] bottom-[-20px] left-[-20%] bg-slate-100 h-[2px] transition-all;
   }
 }
