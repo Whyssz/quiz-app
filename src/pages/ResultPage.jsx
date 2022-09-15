@@ -36,7 +36,7 @@ export const ResultPage = () => {
 
   const checkHeight = () => {
     const elHeight = document.querySelector('.result-box')?.clientHeight;
-    if (elHeight > 550 && window.innerWidth < 1000) {
+    if (elHeight > 600 && window.innerWidth < 1000) {
       document.body.style.height = '100%';
     }
   };
@@ -67,7 +67,7 @@ export const ResultPage = () => {
           <div className="tablet:pt-10">
             <div
               className="py-3 tablet:py-10 px-4
-       mx-auto relative bg-white tablet:px-[25px] tablet:pt-10 tablet:pb-10 tablet:rounded-3xl min-h-[88.5vh] tablet:min-h-[500px]"
+       mx-auto relative bg-white tablet:px-[25px] tablet:pt-10 tablet:pb-10 tablet:rounded-3xl min-h-[100vh] tablet:min-h-[500px]"
             >
               <h2 className="mt-5 font-bold text-transparent text-6xl bg-clip-text bg-gradient-to-r from-[#3550dc] to-[#27e9f7] cursor-pointer animate-bounce">
                 <Link to="/">Result</Link>

@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useData } from '../../hooks/useData';
-import { useQuestServices } from '../../services/QuestServices';
 import styles from './timer.module.scss';
 
 export const Timer = ({ timer }) => {
