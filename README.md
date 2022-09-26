@@ -1,4 +1,4 @@
-## Brief:
+## Brief: [view](https://whyssz.github.io/quiz-app/)
 
 This is a classic "Quiz" project that used the [QuizAPI](https://quizapi.io/) to get questions.
 
