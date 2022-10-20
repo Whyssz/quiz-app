@@ -11,14 +11,17 @@ export const Timer = ({ timer }) => {
   const { data } = useData();
 
   useEffect(() => {
-    if (data.length !== 0) {
-      const interval = setInterval(() => {
-        setTime((time) => (time >= 1 ? time - 1 : 0));
-      }, 1000);
+    const interval = setInterval(() => {
+      setTime((time) => (time >= 1 ? time - 1 : 0));
+    }, 1000);
 
-      if (time === 0) endTimer('/result');
-      return () => clearInterval(interval);
+    if (time === 0) {
+      endTimer('/result');
     }
+
+    return () => {
+      clearInterval(interval);
+    };
   }, [time, data]);
 
   const minutes = addZero(Math.floor(time / 60));
